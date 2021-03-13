@@ -1,0 +1,250 @@
+.diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  min-height: 469px;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid $gray-diagram;
+  border-radius: 5px;
+}
+
+.diagram__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.diagram__head-ico {
+  margin: 0 auto;
+  fill: $main-gray-color;
+  margin-bottom: 20px;
+}
+
+.diagram__percent-num {
+  font-size: 65px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.diagram__percent-point {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 26px;
+}
+
+.diagram__percent-mark {
+  color: $main-gray-color;
+}
+
+.diagram__description {
+  text-align: center;
+  width: 80%;
+}
+
+.diagram__desription-title {
+  display: flex;
+  flex-direction: column;
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.diagram__description-indicator {
+  font-size: 26px;
+  color: $main-yellow-color;
+  margin-top: 10px;
+}
+
+.diagram__indicator-description {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  line-height: 22px;
+  color: $main-gray-color;
+}
+
+.diagram__progress-indicator {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 22px;
+
+  &::before {
+    content: "";
+    width: 0;
+    height: 0;
+    align-self: center;
+    margin-right: 3px;
+    border: 0 solid transparent;
+    border-right-width: 12px;
+    border-left-width: 12px;
+  }
+
+  &--up {
+    color: $main-green-color;
+
+    &::before {
+      border-bottom: 8px solid $main-green-color;
+    }
+  }
+
+  &--down {
+    color: $main-red-color;
+
+    &::before {
+      border-top: 8px solid $main-red-color;
+    }
+  }
+}
+
+.diagram__table {
+  width: 60%;
+  padding: 0px 20px;
+}
+
+.diagram__table-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+}
+
+.diagram__indicator-name {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.diagram__indicator-name-desc {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  span {
+    &:first-child {
+      margin-right: auto;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+  }
+
+  &--promo {
+    &::before {
+      width: 30px;
+      height: 2px;
+      background-color: $gray-diagram;
+      bottom: 0;
+      left: -50px;
+    }
+
+    &::after {
+      content: "+";
+      position: absolute;
+      bottom: -42px;
+      left: -58px;
+      font-size: 28px;
+      color: $gray-diagram;
+    }
+  }
+
+  &--skeptic {
+    &::before {
+    width: 16px;
+    height: 16px;
+    border: 2px solid $gray-diagram;
+    border-top: none;
+    border-right: none;
+    border-radius: 0 0 0 5px;
+    bottom: -5px;
+    left: -50px;
+    }
+  }
+}
+
+.diagram__indicator-count {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    background-image: url("../../img/human_full.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+.diagram__table-progress {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $table-background;
+  border: 1px solid $gray-diagram;
+  border-radius: 4px;
+}
+
+.diagram__table-progress-num {
+  padding: 0 5px;
+}
+
+.diagram__table-progress-color {
+  width: 32px;
+  height: 34px;
+  border-radius: 4px 0 0 4px;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 27px;
+    border-radius: 4px 0 0 0;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+  }
+
+  &--promo {
+    background-color: rgba(112, 167, 75, 0.7);
+
+    &::before {
+      background-color: $main-green-color;
+    }
+  }
+
+  &--skeptic {
+    background-color: rgba(251, 210, 41, 0.7);
+
+    &::before {
+      background-color: $main-yellow-color;
+    }
+  }
+
+  &--critic {
+    background-color: rgba(237, 82, 67, 0.7);
+
+    &::before {
+      background-color: $main-red-color;
+    }
+  }
+}

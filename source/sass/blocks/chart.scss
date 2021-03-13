@@ -1,0 +1,52 @@
+@keyframes render-diagram {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.chart {
+  position: absolute;
+  top: -65px;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 247px;
+    border: 2px solid $gray-diagram;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 5px 0 0 0;
+    position: absolute;
+    bottom: 10px;
+    left: 51px;
+  }
+}
+
+.chart__diagram {
+  transform: rotate(-61deg);
+}
+
+.chart__diagram-unit {
+  fill: none;
+  stroke-width: 1;
+  animation-name: render-diagram;
+  animation-duration: 1.5s;
+
+  &:nth-child(1) {
+    stroke: $gray-diagram;
+    stroke-width: .9;
+    stroke-dasharray: 85 100;
+  }
+
+  &:nth-child(2) {
+    stroke: $main-yellow-color;
+    stroke-dasharray: 33 100;
+  }
+
+  &:nth-child(3) {
+    stroke: $main-green-color;
+    stroke-dasharray: 28 100;
+    stroke-dashoffset: -33;
+  }
+}
